@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+<head>
+    <title>Video Downloader</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Video Downloader</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="video_url">Enter the URL of the video you want to download:</label>
+        <input type="text" name="video_url" id="video_url" required>
+        <br>
+        <label for="resolution">Enter the desired resolution(ex:144p):</label>
+        <input type="text" name="resolution" id="resolution" required>
+        <br>
+        <input type="submit" value="Download">
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <footer>
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
